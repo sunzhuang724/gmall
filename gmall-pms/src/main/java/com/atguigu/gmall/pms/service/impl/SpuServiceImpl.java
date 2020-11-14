@@ -14,6 +14,7 @@ import com.atguigu.gmall.pms.vo.SpuVo;
 import com.atguigu.gmall.sms.vo.SkuSaleVo;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,6 @@ import com.atguigu.gmall.common.bean.PageParamVo;
 
 import com.atguigu.gmall.pms.mapper.SpuMapper;
 import com.atguigu.gmall.pms.service.SpuService;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 
@@ -78,11 +78,11 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, SpuEntity> implements
     private GmallSmsClient smsClient;
     @Autowired
     private SkuAttrValueService skuAttrValueService;
-
-
+@Autowired
+private RabbitTemplate rabbitTemplate;
 
     @Override
-      @GlobalTransactional
+//      @GlobalTransactional
     public void BigSave(SpuVo spuVo) {
 // 保存相关内容
 //        1.1保存spu基本信息  spu_info
@@ -156,7 +156,8 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, SpuEntity> implements
             skuSaleVo.setSkuId(skuId);
             this.smsClient.saveSkuSaleInfo(skuSaleVo);
         });
-
+//        往消息队列中发送同步消息，共消费者监听消费
+        rabbitTemplate.convertAndSend("PMS_SPU_EXCHANGE","item.insert",spuId);
     }
 //    繁杂的代码可以提取到类中
 //    private void saveBaseAttr(SpuVo spuVo,Long spuId){

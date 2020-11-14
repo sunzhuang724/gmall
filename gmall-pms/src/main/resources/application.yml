@@ -15,3 +15,10 @@ spring:
     alibaba:
       seata:
         tx-service-group: gmall-tx-group
+  rabbitmq:
+    host: 192.168.134.130
+    virtual-host: /sun
+    username: sun
+    password: sun
+    publisher-confirm-type: correlated
+    publisher-returns: true

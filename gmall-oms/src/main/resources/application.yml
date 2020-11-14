@@ -1,6 +1,5 @@
 server:
   port: 18082
-
 mybatis-plus:
   mapper-locations: classpath:mapper/oms/**/*.xml  # 读取映射文件
   type-aliases-package: com.atguigu.gmall.oms.entity

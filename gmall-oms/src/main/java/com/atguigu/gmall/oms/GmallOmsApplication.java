@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class GmallOmsApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(GmallOmsApplication.class, args);
     }
 

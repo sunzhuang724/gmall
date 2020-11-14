@@ -1,6 +1,5 @@
 package com.atguigu.gmall.pms;
 
-import com.atguigu.gmall.pms.feign.GmallSmsClient;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

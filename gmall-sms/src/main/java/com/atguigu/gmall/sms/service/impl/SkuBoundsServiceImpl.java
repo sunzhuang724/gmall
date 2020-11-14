@@ -43,7 +43,7 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsMapper, SkuBounds
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public void saveSkuSaleInfo(SkuSaleVo skuSaleVo) {
 //        3.1积分优惠
         SkuBoundsEntity skuBoundsEntity = new SkuBoundsEntity();

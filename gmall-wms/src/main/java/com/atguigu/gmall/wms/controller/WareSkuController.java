@@ -34,6 +34,7 @@ public class WareSkuController {
 
     @Autowired
     private WareSkuService wareSkuService;
+
     @GetMapping("sku/{skuId}")
     public ResponseVo<List<WareSkuEntity>> queryWareSkusBySkuId(@PathVariable("skuId")Long skuId){
         List<WareSkuEntity> wareSkuEntities = this.wareSkuService.list(new QueryWrapper<WareSkuEntity>().eq("sku_id", skuId));

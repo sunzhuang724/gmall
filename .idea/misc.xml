@@ -11,7 +11,16 @@
         <option value="$PROJECT_DIR$/gmall-wms/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-generator/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-search/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-index/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-item/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/elasticsearch-demo/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
