@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/gmall-cart/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-scheduled/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-order/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-common/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
