@@ -4,14 +4,34 @@ import com.atguigu.gmall.common.bean.PageParamVo;
 
 import com.atguigu.gmall.common.bean.ResponseVo;
 import com.atguigu.gmall.pms.entity.*;
-import io.swagger.annotations.ApiOperation;
+import com.atguigu.gmall.pms.vo.GroupVo;
+import com.atguigu.gmall.pms.vo.SaleAttrValueVo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 public interface GmallPmsApi {
+    @GetMapping("pms/skuimages/sku/{skuId}")
+    public ResponseVo<List<SkuImagesEntity>> queryImagesBySkuId(@PathVariable("skuId")Long skuId);
 
-
+    @GetMapping("pms/category/all/{cid}")
+    public ResponseVo<List<CategoryEntity>> queryAllLvlCategoriesByCid3(@PathVariable("cid")Long cid);
+    @GetMapping("pms/attrgroup/cid/spuId/skuId/{cid}")
+    public ResponseVo<List<GroupVo>> queryGroupWithAttrValuesByCidAndSpuIdAndSkuId(@PathVariable("cid")Long cid,
+                                                                                   @RequestParam("skuId")Long skuId,
+                                                                                   @RequestParam("spuId")Long spuId);
+    @GetMapping("pms/attrgroup/withattrs/{catId}")
+    public ResponseVo<List<GroupVo>> queryByCid(@PathVariable("catId")Long cid);
+    @GetMapping("pms/skuattrvalue/spu/{spuId}")
+    public ResponseVo<List<SaleAttrValueVo>> querySaleAttrValuesBySpuId(@PathVariable("spuId")Long spuId);
+    @GetMapping("pms/skuattrvalue/sku/mapping/{spuId}")
+    public ResponseVo<String> querySaleAttrValuesMappingSkuId(@PathVariable("spuId")Long spuId);
+    @GetMapping("pms/spudesc/{spuId}")
+    public ResponseVo<SpuDescEntity> querySpuDescById(@PathVariable("spuId") Long spuId);
+    @GetMapping("pms/skuattrvalue/sale/attr/{skuId}")
+    public ResponseVo<List<SkuAttrValueEntity>> querySaleAttrsBySkuId(@PathVariable("skuId")Long skuId);
+    @GetMapping("pms/skuimages/{id}")
+    public ResponseVo<SkuImagesEntity> querySkuImagesById(@PathVariable("id") Long id);
     @GetMapping("pms/sku/{id}")
     public ResponseVo<SkuEntity> querySkuById(@PathVariable("id") Long id);
     @PostMapping("pms/spu/json")
