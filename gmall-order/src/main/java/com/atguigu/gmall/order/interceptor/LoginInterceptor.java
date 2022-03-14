@@ -1,6 +1,7 @@
 package com.atguigu.gmall.order.interceptor;
 
 import com.atguigu.gmall.cart.config.JwtProperties;
+
 import com.atguigu.gmall.cart.pojo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
